@@ -17,14 +17,25 @@ void add(string name,unsigned int phone){
     }else{
         pt=(PhoneBook *)malloc(sizeof(PhoneBook));
         strcpy(pt->Name,name.c_str());pt->phone=phone;
-        pt->next=0;tail=pt;
+        pt->next=0;tail->next=pt;tail=pt;
     }
+}
+
+void list(){
+    if(head==0){cout<<"no data"<<endl;return;}
+    pt=head;
+    while(pt->next !=0){
+        printf("node address:%p name=%s phone=%d next=%p\n",pt,pt->Name,pt->phone,pt->next);
+        pt=pt->next;
+    }printf("node address:%p name=%s phone=%d next=%p\n",pt,pt->Name,pt->phone,pt->next);
 }
 
 int main()
 {
-    add("John",1234); add("Marry",5678);add("Peter",5555);
-
+    add("John",1234);
+    add("Marry",5678);
+    add("Peter",5555);
+    list();
     cout<<"hello"<<endl;
 //    Node A[5];
 //    strcpy(A[0].Name,"Peter"); A[0].phone=55555;
