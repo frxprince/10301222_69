@@ -30,11 +30,52 @@ void list(){
     }printf("node address:%p name=%s phone=%d next=%p\n",pt,pt->Name,pt->phone,pt->next);
 }
 
+void destroy(){
+    pt=head;
+    while(pt->next !=0){
+        free(pt);pt=pt->next;
+    }free(pt);head=0;tail=0;
+}
+
+void insert_node(string name,unsigned int phone,string position){
+    PhoneBook *left_pt=head;
+    pt=head;
+    while(pt->next!=0){
+
+        if(strcmp(pt->Name,position.c_str())==0)break;
+        left_pt=pt;
+        pt=pt->next;
+    }
+    pt2 =(PhoneBook *) malloc(sizeof(PhoneBook));
+    strcpy(pt2->Name,name.c_str());
+    pt2->phone=phone;
+    pt2->next=pt;
+    left_pt->next=pt2;
+}
+
+void delete_node(string position){
+    PhoneBook *left_pt=head;
+    pt=head;
+    while(pt->next!=0){
+        if(strcmp(pt->Name,position.c_str())==0)break;
+        left_pt=pt;
+        pt=pt->next;
+    }
+    left_pt->next=pt->next;
+    free(pt);
+}
+
+
 int main()
 {
     add("John",1234);
     add("Marry",5678);
     add("Peter",5555);
+    add("Jack",666);
+    insert_node("XXX",5111,"Peter");
+   delete_node("Jack");
+    list();
+    destroy();
     list();
     cout<<"hello"<<endl;
 //    Node A[5];
