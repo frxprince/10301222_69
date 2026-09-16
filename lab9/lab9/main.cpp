@@ -35,6 +35,8 @@ int main()
 {   stackinfo *S1=createStack(10); stackinfo *S2=createStack(5);
     push(S1,1);push(S1,2);push(S1,3); pop(S1);cout<<peak(S1)<<endl;
     push(S2,1);push(S2,2);push(S2,3); pop(S2);pop(S2);cout<<peak(S2)<<endl;
+    free(S1->data);free(S1);
+    free(S2->data);free(S2);
     cout << "Hello World!" << endl;
     return 0;
 }
