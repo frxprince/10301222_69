@@ -7,6 +7,10 @@ using namespace std;
 
 int main()
 {   HANDLE hconsole=GetStdHandle(STD_OUTPUT_HANDLE);
+    for(int i=0x00;i<=0xff;i++){
+        SetConsoleTextAttribute(hconsole,i);
+        cout<<i<<endl;
+      }
     SetConsoleTextAttribute(hconsole,0x04);
     cout<<"Hello World"<<endl;
  SetConsoleTextAttribute(hconsole,0x00);
@@ -20,14 +24,14 @@ int main()
             break;
         case ')':
             if(S.empty()){
-             SetConsoleTextAttribute(hconsole,0x04);cout<<")"<<endl;
+             SetConsoleTextAttribute(hconsole,28);cout<<")"<<endl;
               SetConsoleTextAttribute(hconsole,0x0);
                 return 0;
             } S.pop();
         }cout<<input[i];
     }
     if(!S.empty()){
-         SetConsoleTextAttribute(hconsole,0x04);
+         SetConsoleTextAttribute(hconsole,28);
         cout<<" missing )"<<endl;
     }
         return 0;
