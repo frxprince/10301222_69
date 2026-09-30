@@ -37,7 +37,7 @@ int main(){
     Precedence['*']=2;Precedence['/']=2;
     Precedence['+']=1;Precedence['-']=1;
 
-    input="(5*2)+(4+3*(5+6+7)-1)*10";
+    input="1+2+3+4+5*5*6+1-2";
 
     for(i=0;i<input.length();i++)		{
         if((input[i]=='+') ||  (input[i]=='-') ||  (input[i]=='*') ||(input[i]=='/') ||(input[i]=='^') ||(input[i]=='(') ||(input[i]==')')){
